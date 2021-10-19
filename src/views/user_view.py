@@ -1,7 +1,7 @@
 def displayUsers(listUsers):
     for user in listUsers:
-        print("\nNome: {} {}".format(user.get("name"), user.get("name")))
-        print("E-mail: ", user.get("email"))
+        print("Nome: {} {}".format(user.get("name"), user.get("name")))
+        print("E-mail: {}\n".format(user.get("email")))
 
 def displayMenu():
     print("1 - Inserir novo usuário")
