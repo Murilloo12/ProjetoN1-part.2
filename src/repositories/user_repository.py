@@ -35,12 +35,11 @@ def findUserByName(name):
 
     return userListFiltered
 
-def removeUserByEmail():
+def removeUserByEmail(email):
     userList = getUsers()
-    valueDesired = input('Digite o email do usuário a ser removido: ')
-    for value in range(len(userList)):
-        if userList[value]['email'] == valueDesired:
-            del userList[value]
+    for user in range(len(userList)):
+        if userList[user]['email'] == email:
+            del userList[user]
             break
 
     fileData = open(DATA_FILE_PATH, "w")
