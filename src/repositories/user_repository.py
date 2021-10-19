@@ -34,3 +34,15 @@ def findUserByName(name):
     userListFiltered = list(filter(lambda user: user['name'] == name, userList))
 
     return userListFiltered
+
+def removeUserByEmail():
+    userList = getUsers()
+    valueDesired = input('Digite o email do usuário a ser removido: ')
+    for value in range(len(userList)):
+        if userList[value]['email'] == valueDesired:
+            del userList[value]
+            break
+
+    fileData = open(DATA_FILE_PATH, "w")
+    fileData.write(json.dumps(userList))
+    fileData.close()

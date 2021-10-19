@@ -44,6 +44,10 @@ def findUserByName():
     else:
         print("Usuário não encontrado!\n")
 
+def removeUserByEmail():
+    repository.removeUserByEmail()
+    print('\nUsuário removido com sucesso!\n')
+
 def setup():
     clearConsole()
     while(True):
@@ -59,6 +63,8 @@ def setup():
                 listUserSorted()
             elif(menuAnswer == 4):
                 findUserByName()
+            elif(menuAnswer == 5):
+                removeUserByEmail()
             else:
                 break
         except ValueError as erro:
