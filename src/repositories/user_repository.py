@@ -1,14 +1,27 @@
 import os
 import json
 
-dirPath = os.path.dirname(os.path.realpath(__file__))
+DIRNAME = os.path.dirname(os.path.realpath(__file__))
 
-def insertUser(user):
-    user = open
-    userList.append(user)
+DATA_FILENAME = "users_data.json"
+DATA_DIR_PATH = DIRNAME.replace("repositories", "data")
+DATA_FILE_PATH = os.path.join(DATA_DIR_PATH, DATA_FILENAME)
 
 def getUsers():
-    return userList
+    fileData = open(DATA_FILE_PATH, "r")
+
+    usersData = fileData.read()
+    usersData = "[]" if usersData is None or usersData == "" else usersData
+
+    return json.loads(usersData)
+
+def insertUser(user):
+    userList = getUsers()
+    userList.append(user)
+
+    fileData = open(DATA_FILE_PATH, "w")
+    fileData.write(json.dumps(userList))
+    fileData.close()
 
 def getUsersSorted():
     userList.sort()

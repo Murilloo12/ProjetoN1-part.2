@@ -4,10 +4,6 @@ from src.views.user_view import displayUsers
 from src.views.user_view import displayMenu
 
 def insertUser():
-    # name = input("Digite o nome do usuário: ")
-    # surname = input("Digite o sobrenome do usuário: ")
-    # email = input("Digite o e-mail do usuário: ")
-
     user = {
         "name": input("Digite o nome do usuário: "),
         "surname": input("Digite o sobrenome do usuário: "),
@@ -15,11 +11,10 @@ def insertUser():
     }
 
     repository.insertUser(user)
-    
 
 def listUser():
-    print(repository.listUser())
-    displayUsers(repository.listUser())
+    userList = repository.getUsers()
+    displayUsers(userList)
 
 def setup():
     while(True):
