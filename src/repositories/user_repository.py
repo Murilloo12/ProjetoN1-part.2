@@ -24,8 +24,7 @@ def insertUser(user):
     fileData.close()
 
 def getUsersSorted():
-    userList.sort()
-    return userList
+    userList = getUsers()
+    userListSorted = sorted(userList, key=lambda k: k['name'])
 
-def checkUserExists(user):
-    return user in userList
+    return userListSorted

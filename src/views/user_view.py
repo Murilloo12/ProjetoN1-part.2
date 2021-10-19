@@ -1,6 +1,6 @@
 def displayUsers(listUsers):
     for user in listUsers:
-        print("Nome: {} {}".format(user.get("name"), user.get("name")))
+        print("Nome: {} {}".format(user.get("name"), user.get("surname")))
         print("E-mail: {}\n".format(user.get("email")))
 
 def displayMenu():

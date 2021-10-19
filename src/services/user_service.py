@@ -24,6 +24,12 @@ def listUser():
     userList = repository.getUsers()
     displayUsers(userList)
 
+def listUserSorted():
+    clearConsole()
+
+    userList = repository.getUsersSorted()
+    displayUsers(userList)
+
 def setup():
     clearConsole()
     while(True):
@@ -34,6 +40,8 @@ def setup():
             insertUser()
         elif(menuAnswer == 2):
             listUser()
+        elif(menuAnswer == 3):
+            listUserSorted()
         else:
             break
 
