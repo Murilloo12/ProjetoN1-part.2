@@ -25,6 +25,12 @@ def insertUser(user):
 
 def getUsersSorted():
     userList = getUsers()
-    userListSorted = sorted(userList, key=lambda k: k['name'])
+    userListSorted = sorted(userList, key=lambda user: user['name'])
 
     return userListSorted
+
+def findUserByName(name):
+    userList = getUsers()
+    userListFiltered = list(filter(lambda user: user['name'] == name, userList))
+
+    return userListFiltered

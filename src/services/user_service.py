@@ -30,18 +30,38 @@ def listUserSorted():
     userList = repository.getUsersSorted()
     displayUsers(userList)
 
+def findUserByName():
+    clearConsole()
+
+    name = input("Digite o nome do usuário: ")
+    userList = repository.findUserByName(name)
+
+    clearConsole()
+
+    if(len(userList) > 0):
+        print("Usuário encontrado!\n")
+        displayUsers(userList)
+    else:
+        print("Usuário não encontrado!\n")
+
 def setup():
     clearConsole()
     while(True):
         displayMenu()
-        menuAnswer = int(input("Qual ação você deseja realizar? (Digite apenas o número)\n"))
 
-        if(menuAnswer == 1):
-            insertUser()
-        elif(menuAnswer == 2):
-            listUser()
-        elif(menuAnswer == 3):
-            listUserSorted()
-        else:
-            break
+        try:
+            menuAnswer = int(input("Qual ação você deseja realizar? (Digite apenas o número)\n"))
+            if(menuAnswer == 1):
+                insertUser()
+            elif(menuAnswer == 2):
+                listUser()
+            elif(menuAnswer == 3):
+                listUserSorted()
+            elif(menuAnswer == 4):
+                findUserByName()
+            else:
+                break
+        except ValueError as erro:
+            clearConsole()
+            print("Digite somente números e inteiros!\n")
 
