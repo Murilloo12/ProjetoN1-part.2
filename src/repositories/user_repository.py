@@ -1,7 +1,7 @@
 import os
 import json
 
-DIRNAME = os.path.dirname(os.path.realpath(_file_))
+DIRNAME = os.path.dirname(os.path.realpath(__file__))
 
 DATA_FILENAME = "users_data.json"
 DATA_DIR_PATH = DIRNAME.replace("repositories", "data")
