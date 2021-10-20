@@ -49,6 +49,23 @@ def removeUserByEmail():
     repository.removeUserByEmail(email)
     print('\nUsuário removido com sucesso!\n')
 
+def changeNameByEmail():
+    clearConsole()
+
+    email = input("Digite o email do usuário: ")
+
+    if(repository.checkUserByEmail(email)):
+        user = {
+            "name": input("Digite o nome do usuário: "),
+            "surname": input("Digite o sobrenome do usuário: "),
+            "email": email
+        }
+        repository.changeNameByEmail(user)
+        print('\nUsuário atualizado com sucesso!\n')
+    else:
+        print("Email não encontrado!\n")
+
+
 def setup():
     clearConsole()
     while(True):
@@ -66,9 +83,10 @@ def setup():
                 findUserByName()
             elif(menuAnswer == 5):
                 removeUserByEmail()
+            elif(menuAnswer == 6):
+                changeNameByEmail()
             else:
                 break
         except ValueError as erro:
             clearConsole()
             print("Digite somente números e inteiros!\n")
-

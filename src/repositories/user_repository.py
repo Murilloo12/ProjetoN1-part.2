@@ -45,3 +45,24 @@ def removeUserByEmail(email):
     fileData = open(DATA_FILE_PATH, "w")
     fileData.write(json.dumps(userList))
     fileData.close()
+
+
+def checkUserByEmail(email):
+    userList = getUsers()
+    userExists = False
+    for user in range(len(userList)):
+        if userList[user]['email'] == email:
+            userExists = True
+            break
+
+    return userExists
+
+def changeNameByEmail(userUpdated):
+    userList = getUsers()
+    for user in range(len(userList)):
+        if userList[user]['email'] == userUpdated["email"]:
+            userList[user] = userUpdated
+            fileData = open(DATA_FILE_PATH, "w")
+            fileData.write(json.dumps(userList))
+            fileData.close()
+            break
