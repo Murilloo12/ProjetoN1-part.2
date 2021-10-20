@@ -45,8 +45,10 @@ def findUserByName():
         print("Usuário não encontrado!\n")
 
 def removeUserByEmail():
+    clearConsole()
     email = input('Digite o email do usuário a ser removido: ')
     repository.removeUserByEmail(email)
+    clearConsole()
     print('\nUsuário removido com sucesso!\n')
 
 def changeNameByEmail():
